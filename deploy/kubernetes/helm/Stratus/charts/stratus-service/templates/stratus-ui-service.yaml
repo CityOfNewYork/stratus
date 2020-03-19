@@ -8,7 +8,7 @@ metadata:
   annotations:
     service.beta.kubernetes.io/aws-load-balancer-connection-idle-timeout: "600"
 spec:
-  type: LoadBalancer
+  type: NodePort
   selector:
     tier: stratus-ui-backend
   ports:
