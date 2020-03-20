@@ -1,4 +1,4 @@
 apiVersion: v1
 description: Stratus Deployment
-name: StratusDeployment
+name: stratus-deploy
 version: 1.0.3
