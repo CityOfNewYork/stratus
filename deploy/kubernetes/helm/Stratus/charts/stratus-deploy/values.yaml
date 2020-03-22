@@ -19,6 +19,7 @@ stratus:
     image: "stratus"
     tag: "latest"
   persistentVolume:
+    host: fs-2d0dd2ac.efs.us-east-1.amazonaws.com
     localPath: "/data"
   ogc:
     rootPath: "/geoserver"

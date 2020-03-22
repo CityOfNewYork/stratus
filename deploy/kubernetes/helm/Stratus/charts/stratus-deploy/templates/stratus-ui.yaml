@@ -85,6 +85,6 @@ spec:
 {{- if .Values.stratus.persistentVolume.host }}
         - name: datavol
           persistentVolumeClaim:
-            claimName: pvc-stratus
+            claimName: pvc-stratus-ui
 {{- end }}
 {{- end }}
