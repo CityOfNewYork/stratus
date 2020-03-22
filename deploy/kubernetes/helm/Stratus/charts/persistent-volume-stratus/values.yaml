@@ -2,6 +2,6 @@ stratus:
   ui:
     enabled: true
   persistentVolume:
-    host: fs-0384ad7f.efs.us-east-1.amazonaws.com
+    host: fs-2d0dd2ac.efs.us-east-1.amazonaws.com
     path: "/"
     type: "efs"
