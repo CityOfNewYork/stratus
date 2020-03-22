@@ -22,7 +22,7 @@ apiVersion: v1
 metadata:
   name: pvc-stratus-ogc
 spec:
-  storageClassName: manual
+  storageClassName: efs-sc
   accessModes:
     - ReadWriteMany
   resources:
@@ -39,7 +39,7 @@ metadata:
   labels:
     type: {{ .Values.stratus.persistentVolume.type | default "efs" }}
 spec:
-  storageClassName: manual
+  storageClassName: efs-sc
   accessModes:
     - ReadWriteMany
   capacity:
