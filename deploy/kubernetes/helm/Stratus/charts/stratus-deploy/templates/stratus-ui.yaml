@@ -30,7 +30,7 @@ spec:
               value: "{{ .Values.stratus.ogc.rootPath }}"
 {{- end }}
             - name: GWC_ENABLED
-              value: "false"
+              value: "true"
             - name: STRATUS_CATALOG_REDIS_CACHING_USE_CACHING_CALLBACK 
               value: "{{ .Values.redis.cache.enabled }}"
             - name: STRATUS_CATALOG_REDIS_CACHING_USE_PARALLEL_QUERIES 
