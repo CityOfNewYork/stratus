@@ -1,10 +1,10 @@
-{{- if .Values.stratus.persistentVolume.host }}
+{{- if .Values.stratus.ogcpersistentVolume.host }}
 kind: PersistentVolume
 apiVersion: v1
 metadata:
   name: pv-stratus-ogc
   labels:
-    type: {{ .Values.stratus.persistentVolume.type | default "efs" }}
+    type: {{ .Values.stratus.ogcpersistentVolume.type | default "efs" }}
 spec:
   storageClassName: efs-sc
   accessModes:
@@ -16,12 +16,12 @@ spec:
   #  path: {{ .Values.stratus.persistentVolume.path | default "/" }}
   csi:
     driver: efs.csi.aws.com
-    volumeHandle: {{ .Values.stratus.persistentVolume.host }}
+    volumeHandle: {{ .Values.stratus.ogcpersistentVolume.host }}
     volumeAttributes:
-      path: {{ .Values.stratus.persistentVolume.path | default "/" }}
+      path: {{ .Values.stratus.ogcpersistentVolume.path | default "/" }}
 {{- end }}
 ---
-{{- if .Values.stratus.persistentVolume.host }}
+{{- if .Values.stratus.ogcpersistentVolume.host }}
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
@@ -36,13 +36,13 @@ spec:
 {{- end }}
 ---
 {{- if .Values.stratus.ui.enabled }}
-{{- if .Values.stratus.persistentVolume.host }}
+{{- if .Values.stratus.uipersistentVolume.host }}
 kind: PersistentVolume
 apiVersion: v1
 metadata:
   name: pv-stratus-ui
   labels:
-    type: {{ .Values.stratus.persistentVolume.type | default "efs" }}
+    type: {{ .Values.stratus.uipersistentVolume.type | default "efs" }}
 spec:
   storageClassName: efs-sc
   accessModes:
@@ -54,12 +54,12 @@ spec:
   #  path: {{ .Values.stratus.persistentVolume.path | default "/" }}
   csi:
     driver: efs.csi.aws.com
-    volumeHandle: {{ .Values.stratus.persistentVolume.host }}
+    volumeHandle: {{ .Values.stratus.uipersistentVolume.host }}
     volumeAttributes:
-      path: {{ .Values.stratus.persistentVolume.path | default "/" }}
+      path: {{ .Values.stratus.uipersistentVolume.path | default "/" }}
 {{- end }}
 ---
-{{- if .Values.stratus.persistentVolume.host }}
+{{- if .Values.stratus.uipersistentVolume.host }}
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
