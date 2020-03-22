@@ -11,9 +11,14 @@ spec:
     - ReadWriteMany
   capacity:
     storage: 10Gi
-  nfs:
-    server: {{ .Values.stratus.persistentVolume.host }} 
-    path: {{ .Values.stratus.persistentVolume.path | default "/" }}
+  #nfs:
+  #  server: {{ .Values.stratus.persistentVolume.host }} 
+  #  path: {{ .Values.stratus.persistentVolume.path | default "/" }}
+  csi:
+    driver: efs.csi.aws.com
+    volumeHandle: {{ .Values.stratus.persistentVolume.host }}
+    volumeAttributes:
+      path: {{ .Values.stratus.persistentVolume.path | default "/" }}
 {{- end }}
 ---
 {{- if .Values.stratus.persistentVolume.host }}
@@ -44,9 +49,14 @@ spec:
     - ReadWriteMany
   capacity:
     storage: 10Gi
-  nfs:
-    server: {{ .Values.stratus.persistentVolume.host }} 
-    path: {{ .Values.stratus.persistentVolume.path | default "/" }}
+  #nfs:
+  #  server: {{ .Values.stratus.persistentVolume.host }} 
+  #  path: {{ .Values.stratus.persistentVolume.path | default "/" }}
+  csi:
+    driver: efs.csi.aws.com
+    volumeHandle: {{ .Values.stratus.persistentVolume.host }}
+    volumeAttributes:
+      path: {{ .Values.stratus.persistentVolume.path | default "/" }}
 {{- end }}
 ---
 {{- if .Values.stratus.persistentVolume.host }}
